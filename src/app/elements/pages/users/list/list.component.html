@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10"><h4>User manager list</h4></div>
+    <div class="col-2 justify-content-end">
+      <a routerLink="/users/add">+ Add</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <p-table
+          [styleClass]="'p-datatable-sm'"
+          [paginator]="true"
+          [value]="users"
+          [rows]="5"
+          [showCurrentPageReport]="true"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [rowsPerPageOptions]="[10, 25, 50]"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 25%">id</th>
+              <th style="width: 25%">avatar</th>
+              <th style="width: 25%">email</th>
+              <th style="width: 25%">first name</th>
+              <th style="width: 25%">last name</th>
+              <th colspan="2">actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-user>
+            <tr>
+              <td>{{ user.id }}</td>
+              <td>
+                <p-avatar
+                  image="{{ user.avatar }}"
+                  styleClass="mr-2"
+                  size="large"
+                  shape="circle"
+                >
+                </p-avatar>
+              </td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>
+                <a> <i class="fa-solid fa-pen-to-square"></i></a>
+              </td>
+              <td>
+                <a> <i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="paginatorleft">
+            <p-button
+              type="button"
+              icon="pi pi-plus"
+              styleClass="p-button-text"
+            ></p-button>
+          </ng-template>
+          <ng-template pTemplate="paginatorright">
+            <p-button
+              type="button"
+              icon="pi pi-cloud"
+              styleClass="p-button-text"
+            ></p-button>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

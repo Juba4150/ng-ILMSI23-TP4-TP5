@@ -1,0 +1,59 @@
+<p-toast></p-toast>
+
+<form [formGroup]="userForm" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Name</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Last name</label
+    >
+    <input
+      formControlName="lastname"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">email</label>
+    <input
+      formControlName="email"
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Job</label>
+    <input
+      formControlName="job"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Phone number</label
+    >
+    <input
+      formControlName="phone"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+      Ajouter
+    </button>
+  </div>
+</form>
